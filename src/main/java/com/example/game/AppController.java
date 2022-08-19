@@ -15,18 +15,11 @@ public class AppController {
     private Button button;
 
     public Scene2 scene2= new Scene2();
-//
-//    @FXML
-//    void onHelloButtonClick(ActionEvent event) {
-//        button.setOnAction(
-//                button.getScene().getWindow().hide();
-//                Stage stage = new Stage();
-//                scene2.start(stage);
-//        )
-//    }
+
+
 
     @FXML
-    void initialize() {
+    void onHelloButtonClick() {
         button.setOnAction(event -> {
             button.getScene().getWindow().hide();
             Stage stage = new Stage();
