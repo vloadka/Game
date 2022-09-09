@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
         int stageWidth = 720; //ширина
         int stageHeight = 480;//длина
         final Spinner <Integer> spinner = new Spinner<Integer>();
-        SpinnerValueFactory <Integer> spinnerValueFactory =
+        SpinnerValueFactory<Integer> spinnerValueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(3,8,3);
         spinner.setValueFactory(spinnerValueFactory);
         Stage2 stage2 = new Stage2();
@@ -27,14 +27,14 @@ public class HelloApplication extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                stage2.setFieldSize(spinner.getValue());//передаем выбранный размер поля
+                stage2.setFieldSize(spinner.getValue());
                 stage2.start();
                 stage.close();
             }
 
         });
 
-        BorderPane borderPane = new BorderPane();//чтобы выбрать куда прижать элементы к стороне контейнера
+        BorderPane borderPane = new BorderPane();
         borderPane.setCenter(btn);//кнопка плэй
         borderPane.setTop(spinner);
         Scene scene = new Scene(borderPane, stageWidth,stageHeight);
@@ -43,7 +43,7 @@ public class HelloApplication extends Application {
         stage.setMaxWidth(stageWidth);
         stage.setMaxHeight(stageHeight);
         stage.setTitle("Пятнашки");
-        stage.setScene(scene);//добавляем к оунц сцену с материалом
+        stage.setScene(scene);
         stage.show();
     }
 
