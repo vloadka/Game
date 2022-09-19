@@ -57,7 +57,7 @@ public class HelloApplication extends Application {
         vBox.getChildren().add(label2);
 
         Label label4 = new Label("Выберите размер поля ниже в спиннере:");
-        label4.setFont(new Font("Arial", 25));
+        label4.setFont(new Font("Arial", 26));
         vBox.getChildren().add(label4);
         vBox.getChildren().addAll(spinner, btn);
         Label label3 = new Label("Удачи!");
