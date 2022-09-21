@@ -12,9 +12,9 @@ import javafx.stage.Stage;
 public class Stage2 {
     private int sizeField = 3; //размер поля
     private int stageWidth = 720;
-    private int stageHeight = 480;
+    private int stageHeight = 550;
     private BorderPane secondaryLayout = new BorderPane();
-    private LogicGame logicGame; //класс логики игры
+    private LogicGame logicGame;
     private Button buttonForCheck = new Button("Checking");
     private Stage newWindow = new Stage();
     private Button[][] listOfButtons;
@@ -45,6 +45,8 @@ public class Stage2 {
         int xForButtons = stageWidth / 2 - sizeOfButtons * sizeField / 2; //позиция начала отрисовки поля по ч чтобы поле было в центре
         int yForButtons = stageHeight / 2 - sizeOfButtons * sizeField / 2;
         Pane pane = new Pane();
+        buttonForCheck.setLayoutX(320);
+        buttonForCheck.setLayoutY(480);
         pane.getChildren().add(buttonForCheck);
 
         for (int i = 0; i < listOfButtons.length; i++) {
@@ -85,15 +87,14 @@ public class Stage2 {
                             listOfButtons[ai][aj].setDisable(true);
                             listOfButtons[ai][aj-1].setDisable(false);
                         }
-                        if (logicGame.getButtonNumber(ai+1, aj) == " "){//если кнопка сверху пустая
-                            System.out.println("dasdasd");
+                        if (logicGame.getButtonNumber(ai+1, aj) == " "){//если кнопка снизу пустая
                             String s = logicGame.getButtonNumber(ai, aj);
                             logicGame.setButtonNumber(ai+1, aj, s);
                             logicGame.setButtonNumber(ai, aj, " ");
                             listOfButtons[ai][aj].setDisable(true);
                             listOfButtons[ai+1][aj].setDisable(false);
                         }
-                        if (logicGame.getButtonNumber(ai-1,aj) == " "){//если кнопка снизу пустая
+                        if (logicGame.getButtonNumber(ai-1,aj) == " "){//если кнопка сверху пустая
                             String s = logicGame.getButtonNumber(ai, aj);
                             logicGame.setButtonNumber(ai-1, aj, s);
                             logicGame.setButtonNumber(ai, aj, " ");

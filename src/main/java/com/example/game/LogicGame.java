@@ -1,6 +1,7 @@
 package com.example.game;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LogicGame {
     private int sizeField; // размер поля
@@ -30,7 +31,7 @@ public class LogicGame {
         for (int i = 1; i < trueFieldOfNumbers.length - 1; i++) {
             for (int j = 1; j < trueFieldOfNumbers.length - 1; j++) {
                 if(number == sizeField * sizeField) {
-                    trueFieldOfNumbers[j][i] = " "; //последнее число оставляем пустым
+                    trueFieldOfNumbers[i][j] = " "; //последнее число оставляем пустым
                 } else {
                     trueFieldOfNumbers[i][j] = String.valueOf(number);
                     number = number + 1;
@@ -81,7 +82,7 @@ public class LogicGame {
         int count = 0;
         for (int i = 1; i < trueFieldOfNumbers.length - 1; i++){
             for (int j = 1; j < trueFieldOfNumbers.length -1; j++){
-                if (fieldOfNumbers[i][j] == trueFieldOfNumbers[i][j]){
+                if (Objects.equals(fieldOfNumbers[i][j], trueFieldOfNumbers[i][j])){
                     count = count + 1;
                 }
             }

@@ -8,10 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -21,7 +18,7 @@ public class HelloApplication extends Application {
     @Override
     public void start (Stage stage) {
         Button btn = new Button("Play");
-        btn.setPrefWidth(80);//ширина кнопки
+        btn.setPrefWidth(200);//ширина кнопки
         int stageWidth = 720; //ширина
         int stageHeight = 480;//длина
         final Spinner <Integer> spinner = new Spinner<Integer>();
@@ -41,34 +38,39 @@ public class HelloApplication extends Application {
 
         });
 
-    BorderPane borderPane = new BorderPane();
+        Pane pane = new Pane();
 
-       // borderPane.setCenter(btn);
-        //borderPane.setTop(spinner);
+        Label label1 = new Label("Добро пожаловать в игру!");
+        label1.setFont(new Font ("Arial", 45));
+        label1.setLayoutX(80);
+        label1.setLayoutY(0);
 
-        VBox vBox = new VBox();
-        Label label1 = new Label("      Добро пожаловать в игру!");
-        label1.setFont(new Font("Arial", 45));
-        vBox.getChildren().add(label1);
-        Label label2 = new Label("Для того чтобы решить головоломку, необходимо расставить квадратики с\n" +
-                "                   цифрами по порядку, от меньшего к большему");
-        label2.setFont(new Font("Arial", 20));
+        Label label2 = new Label("""
+             Для того, чтобы решить головоломку, необходимо расставить квадратики с цифрами по порядку,
+             от меньшего к большего.А на последнем месте должен быть пустой квадратик.""");
+        label2.setFont(new Font("Arial", 15));
+        label2.setLayoutX(10);
+        label2.setLayoutY(60);
         label2.setTextFill(Color.GREEN);
-        vBox.getChildren().add(label2);
 
-        Label label4 = new Label("Выберите размер поля ниже в спиннере:");
-        label4.setFont(new Font("Arial", 26));
-        vBox.getChildren().add(label4);
-        vBox.getChildren().addAll(spinner, btn);
-        Label label3 = new Label("Удачи!");
-        label3.setFont(new Font("Arial", 20));
-        vBox.getChildren().add(label3);
-        borderPane.setCenter(vBox);
+        Label label3 = new Label("Выберите размер поля ниже в спиннере:");
+        label3.setFont(new Font("Arial",25));
+        label3.setLayoutX(10);
+        label3.setLayoutY(110);
 
-        //vBox.setLayoutX(360);
-       // vBox.setLayoutY(240);
+        spinner.setLayoutX(10);
+        spinner.setLayoutY(140);
+        btn.setLayoutX(250);
+        btn.setLayoutY(220);
 
-        Scene scene = new Scene(borderPane, stageWidth,stageHeight);
+        Label label4 = new Label("Удачи!");
+        label4.setFont(new Font("Arial", 20));
+        label4.setLayoutX(320);
+        label4.setLayoutY(250);
+
+        pane.getChildren().addAll(label1,label2, label3, spinner,btn,label4);
+
+        Scene scene = new Scene(pane, stageWidth,stageHeight);
         stage.setMinWidth(stageWidth);
         stage.setMinHeight(stageHeight);
         stage.setMaxWidth(stageWidth);
