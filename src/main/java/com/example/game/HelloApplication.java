@@ -18,9 +18,9 @@ public class HelloApplication extends Application {
     @Override
     public void start (Stage stage) {
         Button btn = new Button("Play");
-        btn.setPrefWidth(200);//ширина кнопки
-        int stageWidth = 720; //ширина
-        int stageHeight = 480;//длина
+        btn.setPrefWidth(200);
+        int stageWidth = 720;
+        int stageHeight = 480;
         final Spinner <Integer> spinner = new Spinner<Integer>();
         SpinnerValueFactory<Integer> spinnerValueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(3,8,3);
@@ -71,10 +71,7 @@ public class HelloApplication extends Application {
         pane.getChildren().addAll(label1,label2, label3, spinner,btn,label4);
 
         Scene scene = new Scene(pane, stageWidth,stageHeight);
-        stage.setMinWidth(stageWidth);
-        stage.setMinHeight(stageHeight);
-        stage.setMaxWidth(stageWidth);
-        stage.setMaxHeight(stageHeight);
+        stage.setResizable(false);
         stage.setTitle("Пятнашки");
         stage.setScene(scene);
         stage.show();
